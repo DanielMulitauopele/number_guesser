@@ -1,7 +1,7 @@
 .header {
+  background-color: #404041;
   text-align: center;
   display: inline;
-  background-color: #404041;
 }
 
 .first-word {
@@ -10,4 +10,8 @@
 
 .second-word {
   color: #E6E7E8
+}
+
+.guesser {
+  text-align: center;
 }

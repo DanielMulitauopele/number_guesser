@@ -1,25 +1,44 @@
+/* Header Styling */
+
 .header {
   background-color: #404041;
-  text-align: center;
   font-family: 'Open Sans', sans-serif;
+  height: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 .first-word {
   color: #ED458B;
   display: inline;
+  font-weight: 700;
 }
 
 .second-word {
   color: #E6E7E8;
   display: inline;
+  font-weight: 300;
 }
+
+/* Body Styling */
 
 .guesser {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
 
+.guess-field {
+  padding: 40px;
+  border-color: #D0D2D3
+}
+
 button {
+  padding: 6px 40px;
   background-color: #929497;
   color: #FFFFFF;
+  border-radius: 18px;
+}
+
+.response {
+  padding: 30px;
 }

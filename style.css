@@ -1,15 +1,16 @@
 .header {
   background-color: #404041;
   text-align: center;
-  display: inline;
 }
 
 .first-word {
-  color: #ED458B
+  color: #ED458B;
+  display: inline;
 }
 
 .second-word {
-  color: #E6E7E8
+  color: #E6E7E8;
+  display: inline;
 }
 
 .guesser {

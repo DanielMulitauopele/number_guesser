@@ -1,6 +1,7 @@
 .header {
   background-color: #404041;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .first-word {
@@ -15,4 +16,10 @@
 
 .guesser {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  background-color: #929497;
+  color: #FFFFFF;
 }

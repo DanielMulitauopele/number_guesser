@@ -33,10 +33,11 @@
 }
 
 button {
-  padding: 6px 40px;
+  padding: 6px 50px;
   background-color: #929497;
   color: #FFFFFF;
   border-radius: 18px;
+  font-size: 18px;
 }
 
 .response {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Number Guesser</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="first-word"><b>Number</b></h1><h1 class="second-word"> Guesser</h1>
+    </header>
+    <div class="guesser">
+      <div class="form">
+        <div class="guess-field">
+          <input type="text" name="q" placeholder="Enter your guess...">
+        </div>
+        <div class="buttons">
+          <button type="button" name="guess">Guess</button>
+          &nbsp;
+          &nbsp;
+          <button type="button" name="clear">Clear</button>
+        </div>
+      </div>
+      <div class="response">
+        <div class="guess-intro">
+          <p>Your last guess was</p>
+        </div>
+        <div class="guess">
+          <p class="guess"></p>
+          <p class="message"></p>
+        </div>
+      </div>
+      <div class="reset">
+        <button type="button" name="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+</html>

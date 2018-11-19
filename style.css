@@ -32,8 +32,12 @@
   border-color: #D0D2D3
 }
 
+input {
+  padding: 6px 10%
+}
+
 button {
-  padding: 6px 50px;
+  padding: 6px 5%;
   background-color: #929497;
   color: #FFFFFF;
   border-radius: 18px;
@@ -44,15 +48,18 @@ button {
   padding: 30px;
 }
 
-.reset {
+.clear-button {
   color: #FFFFFF;
+  border: none;
+}
+
+.guess-button {
+  color: #FFFFFF;
+  border: none;
 }
 
 .reset {
   color: #FFFFFF;
-}
-
-.reset {
-  color: #FFFFFF;
-  padding: 6px 70px;
+  padding: 6px 10%;
+  border: none;
 }

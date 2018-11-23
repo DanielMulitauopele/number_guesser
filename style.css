@@ -63,3 +63,12 @@ button {
   padding: 6px 10%;
   border: none;
 }
+
+.guess {
+  font-size: 500%;
+  color: #EB008B;
+}
+
+p {
+  color: #404041;
+}

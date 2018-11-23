@@ -21,6 +21,12 @@ $(document).ready(function() {
     randNumber = Math.floor((Math.random() * 100) + 1);
   };
 
+  // Still working on this function for validating number
+
+  // function validNumber(userInput){
+  //   parseInt(userInput, 10);
+  // };
+
   function resetGame() {
     randomNumber();
     $('.last-guess').text('Alright, starting fresh!')

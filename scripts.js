@@ -47,6 +47,7 @@ $(document).ready(function() {
     randomNumber();
     clearMessages();
     $('.last-guess').text('Alright, starting fresh!')
+    $('button').prop('disabled', true)
   };
 
   randomNumber();
@@ -66,7 +67,7 @@ $(document).ready(function() {
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(correctGuessMessage)
-    }
+    };
   });
 
   $('.clear-button').on('click', function(){
@@ -82,6 +83,14 @@ $(document).ready(function() {
       clearField();
       invalidEntry(nanMessage)
       event.preventDefault();
-    } else {}
+    } else {
+      $('.message').text('')
+    }
+  });
+
+  $(userGuess).on('keyup', function(){
+    if (userGuess.val() != '') {
+      $('button').prop('disabled', false);
+    }
   });
 });

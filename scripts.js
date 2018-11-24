@@ -4,7 +4,7 @@ $(document).ready(function() {
   const highGuessMessage = "That is too high!"
   const lowGuessMessage = "That is too low!"
   const correctGuessMessage = "BOOM!"
-  const nanMessage = "Enter a NUMBER! please. Geez."
+  const nanMessage = "Enter a NUMBER please. Thanks."
 
   function lastGuessWas(lastGuess) {
     $('.last-guess').text(lastGuess)
@@ -22,26 +22,31 @@ $(document).ready(function() {
     randNumber = Math.floor((Math.random() * 100) + 1);
   };
 
-  // Still working on this function for validating number
-
   function validNumber(userInput){
     parsed = parseInt(userInput, 10);
     return parsed
   };
 
-  function invalidEntry(message){
+  function clearField(){
+    $(userGuess).val('');
+  };
+
+  function clearMessages(){
     $('.last-guess').text('')
     $(userGuess).val('')
     displayNumber('')
+    $('.message').text('')
+  };
+
+  function invalidEntry(message){
+    clearMessages();
     $('.message').text(nanMessage)
   };
 
   function resetGame() {
     randomNumber();
+    clearMessages();
     $('.last-guess').text('Alright, starting fresh!')
-    $(userGuess).val('')
-    displayNumber('')
-    $('.message').text('')
   };
 
   randomNumber();
@@ -61,16 +66,22 @@ $(document).ready(function() {
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(correctGuessMessage)
-    } else if (isNaN(validNumber(userGuess.val()))) {
-      invalidEntry(nanMessage);
     }
   });
 
   $('.clear-button').on('click', function(){
-    $(userGuess).val('');
+    clearField();
   });
 
   $('.reset').on('click', function(){
     resetGame();
+  });
+
+  $(userGuess).on('keyup', function(){
+    if (isNaN(validNumber(userGuess.val()))) {
+      clearField();
+      invalidEntry(nanMessage)
+      event.preventDefault();
+    } else {}
   });
 });

@@ -1,9 +1,14 @@
 $(document).ready(function() {
+  let min = 0
+  let max = 100
+
   const userGuess = $("#q")
   const lastGuess = "Your last guess was"
   const highGuessMessage = "That is too high!"
   const lowGuessMessage = "That is too low!"
-  const correctGuessMessage = "BOOM!"
+  const correctGuessMessage = "BOOM! Nice job! Let's start over."
+  const maxGuessMessage = "That's way too high! Please guess in the range."
+  const minGuessMessage = "That's way too low! Please guess in the range."
   const nanMessage = "Enter a NUMBER please. Thanks."
 
   function lastGuessWas(lastGuess) {
@@ -51,9 +56,18 @@ $(document).ready(function() {
   };
 
   randomNumber();
-
   $('.guess-button').on('click', function(){
-    if (validNumber(userGuess.val()) > randNumber) {
+    if (validNumber(userGuess.val()) > max){
+      lastGuessWas(lastGuess)
+      displayNumber(userGuess.val())
+      setMessage(maxGuessMessage)
+      event.preventDefault();
+    } else if (validNumber(userGuess.val()) < min){
+      lastGuessWas(lastGuess)
+      displayNumber(userGuess.val())
+      setMessage(minGuessMessage)
+      event.preventDefault();
+    } else if (validNumber(userGuess.val()) > randNumber) {
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(highGuessMessage)
@@ -72,6 +86,7 @@ $(document).ready(function() {
 
   $('.clear-button').on('click', function(){
     clearField();
+    $('button').prop('disabled', true);
   });
 
   $('.reset').on('click', function(){
@@ -91,6 +106,8 @@ $(document).ready(function() {
   $(userGuess).on('keyup', function(){
     if (userGuess.val() != '') {
       $('button').prop('disabled', false);
+    } else {
+      $('button').prop('disabled', true);
     }
   });
 });

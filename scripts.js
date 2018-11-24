@@ -4,6 +4,7 @@ $(document).ready(function() {
   const highGuessMessage = "That is too high!"
   const lowGuessMessage = "That is too low!"
   const correctGuessMessage = "BOOM!"
+  const nanMessage = "Enter a NUMBER! please. Geez."
 
   function lastGuessWas(lastGuess) {
     $('.last-guess').text(lastGuess)
@@ -23,9 +24,17 @@ $(document).ready(function() {
 
   // Still working on this function for validating number
 
-  // function validNumber(userInput){
-  //   parseInt(userInput, 10);
-  // };
+  function validNumber(userInput){
+    parsed = parseInt(userInput, 10);
+    return parsed
+  };
+
+  function invalidEntry(message){
+    $('.last-guess').text('')
+    $(userGuess).val('')
+    displayNumber('')
+    $('.message').text(nanMessage)
+  };
 
   function resetGame() {
     randomNumber();
@@ -38,20 +47,22 @@ $(document).ready(function() {
   randomNumber();
 
   $('.guess-button').on('click', function(){
-    if (userGuess.val() > randNumber) {
+    if (validNumber(userGuess.val()) > randNumber) {
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(highGuessMessage)
       event.preventDefault();
-    } else if (userGuess.val() < randNumber) {
+    } else if (validNumber(userGuess.val()) < randNumber) {
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(lowGuessMessage)
       event.preventDefault();
-    } else {
+    } else if (validNumber(userGuess.val()) == randNumber){
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(correctGuessMessage)
+    } else if (isNaN(validNumber(userGuess.val()))) {
+      invalidEntry(nanMessage);
     }
   });
 

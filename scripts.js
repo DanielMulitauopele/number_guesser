@@ -54,7 +54,13 @@ $(document).ready(function() {
     $('.message').text(nanMessage)
   };
 
+  function startingRange(){
+    max = 100
+    min = 1
+  };
+
   function resetGame() {
+    startingRange();
     setRange(rangeStatus);
     randomNumber();
     clearMessages();

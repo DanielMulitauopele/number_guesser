@@ -16,14 +16,17 @@
     </header>
     <div class="guesser">
       <div class="form">
+        <div>
+          <p class="range"></p>
+        </div>
         <div class="guess-field">
           <input type="text" id="q" name="q" placeholder="Enter your guess...">
         </div>
         <div class="buttons">
-          <button class="guess-button" type="button" name="guess">Guess</button>
+          <button class="guess-button" type="button" name="guess" disabled>Guess</button>
           &nbsp;
           &nbsp;
-          <button class="clear-button" type="button" name="clear">Clear</button>
+          <button class="clear-button" type="button" name="clear" disabled>Clear</button>
         </div>
       </div>
       <div class="response">
@@ -36,7 +39,7 @@
         </div>
       </div>
       <div>
-        <button class="reset" type="button" name="reset">Reset</button>
+        <button class="reset" type="button" name="reset" disabled>Reset</button>
       </div>
     </div>
 

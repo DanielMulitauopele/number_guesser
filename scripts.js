@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  let min = 0
+  let min = 1
   let max = 100
 
   const userGuess = $("#q")
@@ -10,6 +10,8 @@ $(document).ready(function() {
   const maxGuessMessage = "That's way too high! Please guess in the range."
   const minGuessMessage = "That's way too low! Please guess in the range."
   const nanMessage = "Enter a NUMBER please. Thanks."
+
+  const rangeStatus = `Please make a guess between ${min} and ${max}.`
 
   function lastGuessWas(lastGuess) {
     $('.last-guess').text(lastGuess)
@@ -23,8 +25,12 @@ $(document).ready(function() {
     $('.message').text(message)
   };
 
+  function setRange(message){
+    $('.range').text(message)
+  };
+
   function randomNumber(){
-    randNumber = Math.floor((Math.random() * 100) + 1);
+    randNumber = Math.floor((Math.random() * max) + min);
   };
 
   function validNumber(userInput){
@@ -49,13 +55,23 @@ $(document).ready(function() {
   };
 
   function resetGame() {
+    setRange(rangeStatus);
     randomNumber();
     clearMessages();
     $('.last-guess').text('Alright, starting fresh!')
     $('button').prop('disabled', true)
   };
 
+  function adjustRange(){
+    min = min - 10
+    max = max + 10
+    setRange(`Please make a new guess between ${min} and ${max}.`)
+    randomNumber();
+  };
+
+  setRange(rangeStatus);
   randomNumber();
+
   $('.guess-button').on('click', function(){
     if (validNumber(userGuess.val()) > max){
       lastGuessWas(lastGuess)
@@ -81,6 +97,7 @@ $(document).ready(function() {
       lastGuessWas(lastGuess)
       displayNumber(userGuess.val())
       setMessage(correctGuessMessage)
+      adjustRange();
     };
   });
 
